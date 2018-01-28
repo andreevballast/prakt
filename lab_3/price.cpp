@@ -2,52 +2,53 @@
 #include <string>
 #include <map>
 #include "price.h"
-
+//
 using namespace std;
-
-int price(string s) {
-    if (s.size()>1000){
-        return -1;
+//
+int Price(string iLozung) {
+  if (iLozung.size() > 1000) {
+    return -1;
+  }
+  map<char, int> symbol;
+  //
+  symbol['a'] = 1;
+  symbol['b'] = 2;
+  symbol['c'] = 3;
+  symbol['d'] = 1;
+  symbol['e'] = 2;
+  symbol['f'] = 3;
+  symbol['g'] = 1;
+  symbol['h'] = 2;
+  symbol['i'] = 3;
+  symbol['j'] = 1;
+  symbol['k'] = 2;
+  symbol['l'] = 3;
+  symbol['m'] = 1;
+  symbol['n'] = 2;
+  symbol['o'] = 3;
+  symbol['p'] = 1;
+  symbol['q'] = 2;
+  symbol['r'] = 3;
+  symbol['s'] = 1;
+  symbol['t'] = 2;
+  symbol['u'] = 3;
+  symbol['v'] = 1;
+  symbol['w'] = 2;
+  symbol['x'] = 3;
+  symbol['y'] = 1;
+  symbol['z'] = 2;
+  symbol[' '] = 1;
+  symbol['.'] = 1;
+  symbol[','] = 2;
+  symbol['!'] = 3;
+  //
+  int price = 0;
+  for (int i = 0; i < iLozung.size(); i++) {
+    if (symbol.count(iLozung[i]) == 0) {
+      return -1;
     }
-    map<char, int> a;
-
-      a['a'] = 1;
-      a['b'] = 2;
-      a['c'] = 3;
-      a['d'] = 1;
-      a['e'] = 2;
-      a['f'] = 3;
-      a['g'] = 1;
-      a['h'] = 2;
-      a['i'] = 3;
-      a['j'] = 1;
-      a['k'] = 2;
-      a['l'] = 3;
-      a['m'] = 1;
-      a['n'] = 2;
-      a['o'] = 3;
-      a['p'] = 1;
-      a['q'] = 2;
-      a['r'] = 3;
-      a['s'] = 1;
-      a['t'] = 2;
-      a['u'] = 3;
-      a['v'] = 1;
-      a['w'] = 2;
-      a['x'] = 3;
-      a['y'] = 1;
-      a['z'] = 2;
-      a[' '] = 1;
-      a['.'] = 1;
-      a[','] = 2;
-      a['!'] = 3;
-
-      int price = 0;
-      for (int i = 0; i < s.size(); i++) {
-        if (a.count(s[i])==0){
-            return -1;
-        }
-          price = price + a[s[i]];
-      }
-      return price;
+    price = price + symbol[iLozung[i]];
+  }
+  //
+  return price;
 }
